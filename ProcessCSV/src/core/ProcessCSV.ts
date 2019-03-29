@@ -1,0 +1,92 @@
+import { CfgInit } from "../init/CfgInit";
+import xlsx from 'node-xlsx';
+import { stat } from "fs";
+
+const fs = require("fs");
+const parse = require('csv-parse/lib/sync')
+const iconv = require('iconv-lite');
+
+export class ProcessCSV{
+
+
+    public static process(reportType:string):void{
+
+        let code = CfgInit.cfgVo.code;
+        let start = parseInt(CfgInit.cfgVo.startYear);
+        let end = parseInt(CfgInit.cfgVo.endYear);
+
+        let prefix = `${reportType}_${code}`;
+        let dir = `bin/report/${code}/${prefix}_${start}_${end}/`;
+
+        let reports:any = [];
+        let heads:any = [];
+
+        /// 解析 CSV
+        for(let i=start; i<end; i++){
+
+            let filePath = `${dir}${prefix}_${i}.csv`
+
+            let content = fs.readFileSync(filePath,{ encoding: 'binary' });
+            const buf = Buffer.from(content, 'binary');
+            const str = iconv.decode(buf, 'GBK'); // 得到正常的字符串，没有乱码
+            
+            let records  = parse(str,{ 
+                columns: false,
+                skip_empty_lines: true });
+
+            reports.push(records[records.length-1])
+            //读取表头
+            if(i == start){
+                heads = records[0];
+            }
+   
+        }
+        
+        /// 生成excel
+        let finaType = reportType.split("_")[1];
+        let excelPath = `bin/report/${code}/${finaType}_${code}.xlsx`;
+
+        if(finaType == "fzb"){
+            this.processFzb(excelPath, reports,heads);
+        }else if(finaType == "llb"){
+            this.processLlb(excelPath, reports,heads);
+        }else if(finaType == "lrb"){
+            this.processLrb(excelPath, reports,heads);
+        }
+
+        
+    }
+    
+    //资产负债表
+    private static processFzb(xlsxPath:string,reports:any,heads:any):void{
+
+
+        
+        var buffer = xlsx.build([{name: "资产负债表", data: reports}]);
+        fs.writeFile(xlsxPath, buffer,function(err){
+            console.log("error:"+err)
+        });
+    }
+
+    //利润表
+    private static processLrb(xlsxPath:string,reports:any,heads:any):void{
+
+
+        var buffer = xlsx.build([{name: "资产负债表", data: reports}]);
+        fs.writeFile(xlsxPath, buffer,function(err){
+            console.log("error:"+err)
+        });
+    }
+
+    //现金流量表
+    private static processLlb(xlsxPath:string,reports:any,heads:any):void{
+        
+
+
+        var buffer = xlsx.build([{name: "资产负债表", data: reports}]);
+        fs.writeFile(xlsxPath, buffer,function(err){
+            console.log("error:"+err)
+        });
+    }
+
+}
