@@ -6,8 +6,8 @@ class Main {
     static main() {
         CfgInit_1.CfgInit.initCfg();
         ProcessCSV_1.ProcessCSV.process("sh_fzb");
-        //ProcessCSV.process("sh_llb");
-        //ProcessCSV.process("sh_lrb");
+        ProcessCSV_1.ProcessCSV.process("sh_llb");
+        ProcessCSV_1.ProcessCSV.process("sh_lrb");
     }
 }
 Main.main();

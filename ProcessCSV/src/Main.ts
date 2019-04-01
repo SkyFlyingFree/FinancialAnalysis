@@ -9,8 +9,8 @@ class Main{
         CfgInit.initCfg();
 
         ProcessCSV.process("sh_fzb");
-        //ProcessCSV.process("sh_llb");
-        //ProcessCSV.process("sh_lrb");
+        ProcessCSV.process("sh_llb");
+        ProcessCSV.process("sh_lrb");
     }
 }
 
