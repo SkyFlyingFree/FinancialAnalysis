@@ -34,7 +34,7 @@ class ProcessCSV {
         }
         /// 生成excel
         let finaType = reportType.split("_")[1];
-        let excelPath = `bin/report/${code}/${finaType}_${code}.xlsx`;
+        let excelPath = `../company/reports/${finaType}_${code}.xlsx`;
         if (finaType == "fzb") {
             ProcessFzb_1.ProcessFzb.processCSV(excelPath, reports, heads);
         }

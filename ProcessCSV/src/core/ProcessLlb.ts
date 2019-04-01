@@ -53,8 +53,8 @@ export class ProcessLlb {
         headArr[42] = heads[45]; //六、期末现金及现金等价物余额
         headArr[43] = "附注"; //附注
         headArr[44] = heads[48]; //净利润
-        headArr[45] = heads[]; //少数股东权益
-        headArr[46] = heads[]; //未确认的投资损失
+        headArr[45] = "少数股东权益"; //少数股东权益
+        headArr[46] = "未确认的投资损失"; //未确认的投资损失
         headArr[47] = heads[49]; //资产减值准备
         headArr[48] = heads[50]; //固定资产折旧、油气资产折耗、生产性物资折旧
         headArr[49] = heads[51]; //无形资产摊销
@@ -139,8 +139,8 @@ export class ProcessLlb {
             headArr[42] = heads[45]; //六、期末现金及现金等价物余额
             headArr[43] = ""; //附注
             headArr[44] = heads[48]; //净利润
-            headArr[45] = heads[]; //少数股东权益
-            headArr[46] = heads[]; //未确认的投资损失
+            headArr[45] = ""; //少数股东权益
+            headArr[46] = ""; //未确认的投资损失
             headArr[47] = heads[49]; //资产减值准备
             headArr[48] = heads[50]; //固定资产折旧、油气资产折耗、生产性物资折旧
             headArr[49] = heads[51]; //无形资产摊销
