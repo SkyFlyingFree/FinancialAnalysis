@@ -14,7 +14,7 @@ export class ProcessFzb{
         headArr[1] = "单位";     //单位
         headArr[2] = "流动资产"; //流动资产
         headArr[3] = heads[7];   //货币资金
-        headArr[4] = heads[8]; //交易性金融资产
+        headArr[4] = "交易性金融资产"; //交易性金融资产
         headArr[5] = heads[81]; //衍生金融资产
         headArr[6] = heads[9]; //应收票据
         headArr[7] = heads[10]; //应收账款
@@ -26,7 +26,7 @@ export class ProcessFzb{
         headArr[13] = heads[16]; //存货
         headArr[14] = heads[86]; //划分为持有待售的资产
         headArr[15] = heads[18]; //一年内到期的非流动资产
-        headArr[16] = heads[35]; //待摊费用
+        headArr[16] = "待摊费用"; //待摊费用
         headArr[17] = heads[8]; //待处理流动资产损益
         headArr[18] = heads[19]; //其他流动资产
         headArr[19] = heads[20]; //流动资产合计
@@ -107,7 +107,7 @@ export class ProcessFzb{
             headArr[1] = "元";     //单位
             headArr[2] = ""; //流动资产
             headArr[3] = Number(heads[7])||0;   //货币资金
-            headArr[4] = Number(heads[8])||0; //交易性金融资产
+            headArr[4] = ""; //交易性金融资产
             headArr[5] = Number(heads[81])||0; //衍生金融资产
             headArr[6] = Number(heads[9])||0; //应收票据
             headArr[7] = Number(heads[10])||0; //应收账款
@@ -119,7 +119,7 @@ export class ProcessFzb{
             headArr[13] = Number(heads[16])||0; //存货
             headArr[14] = Number(heads[86])||0; //划分为持有待售的资产
             headArr[15] = Number(heads[18])||0; //一年内到期的非流动资产
-            headArr[16] = Number(heads[35])||0; //待摊费用
+            headArr[16] = ""; //待摊费用
             headArr[17] = Number(heads[8])||0; //待处理流动资产损益
             headArr[18] = Number(heads[19])||0; //其他流动资产
             headArr[19] = Number(heads[20])||0; //流动资产合计
